@@ -8,7 +8,12 @@ window._ = require('lodash');
  */
 
 window.$ = window.jQuery = require('jquery');
-require('bootstrap-sass');
+
+/**
+ * Parse, validate, manipulate, and display dates in JavaScript.
+ */
+
+window.moment = require('moment');
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -17,7 +22,25 @@ require('bootstrap-sass');
  */
 
 window.Vue = require('vue');
+
+
+/**
+ * The plugin for Vue.js provides services for making web requests
+ * and handle responses using a XMLHttpRequest or JSONP.
+ */
+
 require('vue-resource');
+
+
+/**
+ *  Events is a var that has a vue instance for haddle events such as emit, on, off
+ *
+ *  to emit   -> Events.$emit('key', val);
+ *  to listen -> Events.$on('key', function(val){ console.log(val) });
+ *  to off    -> Events.$off('key', val);
+ */
+
+window.Events = new Vue({});
 
 /**
  * We'll register a HTTP interceptor to attach the "CSRF" header to each of
@@ -26,20 +49,28 @@ require('vue-resource');
  */
 
 Vue.http.interceptors.push((request, next) => {
-    request.headers.set('X-CSRF-TOKEN', Laravel.csrfToken);
+  request.headers['X-CSRF-TOKEN'] = Laravel.csrfToken;
 
-    next();
+  next();
 });
 
+
 /**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
+* Laravel routes
+*/
 
-// import Echo from "laravel-echo"
+window.Routes = require('./routes.js');
 
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
-// });
+
+/**
+* Config
+*/
+
+require('./config');
+
+
+/**
+* Filters
+*/
+
+require('./filters');
