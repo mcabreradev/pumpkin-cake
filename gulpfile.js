@@ -22,9 +22,10 @@ elixir.extend('routes', function(message) {
 });
 
 elixir(mix => {
-    // mix.sass('app.scss')
+    mix.sass('app.scss')
     mix.copy('node_modules/font-awesome', 'public/vendors/font-awesome');
     mix.copy('node_modules/semantic-ui/dist', 'public/vendors/semantic-ui');
+    mix.copy('node_modules/semantic-ui/dist/themes', 'public/css/themes');
     // mix.routes();
     mix.webpack('app.js');
 });

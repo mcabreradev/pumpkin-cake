@@ -9,7 +9,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('/vendors/font-awesome/css/font-awesome.min.css') }}">
         <!-- Styles -->
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('/vendors/semantic-ui/semantic.min.css') }}" rel="stylesheet" type="text/css">
     </head>
 <body>
     <div id="app">
@@ -99,6 +98,5 @@
     </div>
      <script>window.Laravel = <?php echo json_encode(['csrfToken' => csrf_token()]); ?></script>
      <script src="{{ asset('/js/app.js') }}"></script>
-     <script src="{{ asset('/vendors/semantic-ui/semantic.min.js') }}"></script>
     </body>
 </html>

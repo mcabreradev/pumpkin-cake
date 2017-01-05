@@ -74,3 +74,8 @@ require('./config');
 */
 
 require('./filters');
+
+/**
+* Semantic UI
+*/
+require('semantic-ui/dist/semantic');
