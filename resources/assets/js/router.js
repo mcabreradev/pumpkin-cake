@@ -4,11 +4,26 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {path: '/', name: 'Hello', component: require('./components/home/Index.vue')},
-    // {path: '/invoice', component: require('./views/invoice/index.vue')},
-    // {path: '/invoice/create', component: require('./views/invoice/form.vue')},
-    // {path: '/invoice/:id/edit', component: require('./views/invoice/form.vue'), meta: {mode: 'edit'}},
-    // {path: '/invoice/:id', component: require('./views/invoice/show.vue')},
-      ]
+  routes: [{
+      path: '/',
+      name: 'Home',
+      component: require('./spa/Home.vue'),
+      redirect: '/issues',
+      children: [{
+        path: 'issues',
+        name: 'Issues',
+        component: require('./spa/Issues/Issues.vue'),
+      }, ]
+    },
+    {
+      path: '/forbidden',
+      name: 'forbidden',
+      component: require('./spa/Home.vue'),
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: require('./spa/Login/Login.vue'),
+    },
+  ]
 })

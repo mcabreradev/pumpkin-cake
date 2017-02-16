@@ -1,18 +1,17 @@
 <template>
     <div>
-        <AppHeader/>
+        <navigation></navigation>
         <router-view></router-view>
-        <AppFooter/>
+        <!--<AppFooter/>-->
     </div>
+     
 </template>
 <script>
-    import AppHeader from './components/home/Header';
-    import AppFooter from './components/home/Footer';
+    import navigation from './shared-components/Navigation';
     export default {
         name: 'app',
         components: {
-            AppHeader,
-            AppFooter,
+            navigation,
         },
     }
 </script>
